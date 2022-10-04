@@ -1,0 +1,21 @@
+@prefix amt: <http://academic-meta-tool.xyz/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix lado: <http://archaeology.link/ontology#> .
+
+# Potforms (Dragendorf)
+
+lado:PF_18 amt:instanceOf lado:Potform. lado:PF_18 rdfs:label 'Dragendorff 18'.
+lado:PF_18_31 amt:instanceOf lado:Potform. lado:PF_18_31 rdfs:label 'Dragendorff 18/31'.
+lado:PF_15_17 amt:instanceOf lado:Potform. lado:PF_15_17 rdfs:label 'Dragendorff 15/17'.
+
+# Allen interval algebra roles (weighted)
+
+_:node03 rdf:subject lado:PF_18 . _:node03 rdf:predicate lado:hasSameFootring . _:node03 rdf:object lado:PF_18_31 . _:node03 amt:weight "1.00" .
+_:node04 rdf:subject lado:PF_18_31 . _:node04 rdf:predicate lado:hasSameFootring . _:node04 rdf:object lado:PF_15_17 . _:node04 amt:weight "0.50" .
+
+_:node05 rdf:subject lado:PF_18 . _:node05 rdf:predicate lado:hasSameRim . _:node05 rdf:object lado:PF_18_31 . _:node05 amt:weight "0.00" .
+_:node06 rdf:subject lado:PF_18_31 . _:node06 rdf:predicate lado:hasSameRim . _:node06 rdf:object lado:PF_15_17 . _:node06 amt:weight "1.00" .
+
+_:node07 rdf:subject lado:PF_18 . _:node07 rdf:predicate lado:hasSameFootring . _:node07 rdf:object lado:PF_18_31 . _:node07 amt:weight "0.00" .
+_:node08 rdf:subject lado:PF_18_31 . _:node08 rdf:predicate lado:hasSameRim . _:node08 rdf:object lado:PF_15_17 . _:node08 amt:weight "1.00" .
