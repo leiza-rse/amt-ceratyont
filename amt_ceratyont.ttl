@@ -1,0 +1,90 @@
+@prefix amt: <http://academic-meta-tool.xyz/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix lado: <http://archaeology.link/ontology#> .
+
+# AMT Ontology - Leonard Edition
+# http://academic-meta-tool.xyz/ontology
+
+amt:Concept rdfs:subClassOf rdfs:Class .
+amt:Role rdfs:subClassOf rdf:Property .
+amt:Axiom rdfs:subclassOf rdfs:Class .
+amt:InferenceAxiom rdfs:subClassOf amt:Axiom .
+amt:IntegrityAxiom rdfs:subClassOf amt:Axiom .
+amt:RoleChainAxiom rdfs:subClassOf amt:InferenceAxiom .
+amt:InverseAxiom rdfs:subClassOf amt:InferenceAxiom .
+amt:DisjointAxiom rdfs:subClassOf amt:IntegrityAxiom .
+amt:SelfDisjointAxiom rdfs:subClassOf amt:IntegrityAxiom .
+amt:Logic rdfs:subClassOf rdfs:Class .
+amt:LukasiewiczLogic rdf:type amt:Logic .
+amt:ProductLogic rdf:type amt:Logic .
+amt:GoedelLogic rdf:type amt:Logic .
+
+# CeraTyOnt AMT Ontology
+
+# concepts
+
+lado:Potform rdf:type amt:Concept .
+lado:Potform rdfs:label "Potform" .
+lado:Potform amt:placeholder "Ceramics Potform" .
+
+# roles
+
+lado:exactMatch rdf:type amt:Role .
+lado:exactMatch rdfs:label "is exact match of" .
+lado:exactMatch rdfs:domain lado:Potform .
+lado:exactMatch rdfs:range lado:Potform .
+
+lado:hasSameFootring rdf:type amt:Role .
+lado:hasSameFootring rdfs:label "has same footring as" .
+lado:hasSameFootring rdfs:domain lado:Potform .
+lado:hasSameFootring rdfs:range lado:Potform .
+
+lado:hasSameRim rdf:type amt:Role .
+lado:hasSameRim rdfs:label "has same rim as" .
+lado:hasSameRim rdfs:domain lado:Potform .
+lado:hasSameRim rdfs:range lado:Potform .
+
+lado:partiallyCoincidentWith rdf:type amt:Role .
+lado:partiallyCoincidentWith rdfs:label "is partially coincident with" .
+lado:partiallyCoincidentWith rdfs:domain lado:Potform .
+lado:partiallyCoincidentWith rdfs:range lado:Potform .
+
+lado:partiallyNotCoincidentWith rdf:type amt:Role .
+lado:partiallyNotCoincidentWith rdfs:label "is partially not coincident with" .
+lado:partiallyNotCoincidentWith rdfs:domain lado:Potform .
+lado:partiallyNotCoincidentWith rdfs:range lado:Potform .
+
+# axioms
+
+# RoleChainAxiom
+
+lado:RCA01 rdf:type amt:RoleChainAxiom .
+lado:RCA01 amt:antecedent1 lado:exactMatch .
+lado:RCA01 amt:antecedent2 lado:exactMatch .
+lado:RCA01 amt:consequent lado:exactMatch .
+lado:RCA01 amt:logic amt:ProductLogic .
+
+lado:RCA02 rdf:type amt:RoleChainAxiom .
+lado:RCA02 amt:antecedent1 lado:hasSameFootring .
+lado:RCA02 amt:antecedent2 lado:hasSameFootring .
+lado:RCA02 amt:consequent lado:partiallyCoincidentWith .
+lado:RCA02 amt:logic amt:ProductLogic .
+
+lado:RCA03 rdf:type amt:RoleChainAxiom .
+lado:RCA03 amt:antecedent1 lado:hasSameRim .
+lado:RCA03 amt:antecedent2 lado:hasSameRim .
+lado:RCA03 amt:consequent lado:hasSameRim .
+lado:RCA03 amt:logic amt:ProductLogic .
+
+lado:RCA04 rdf:type amt:RoleChainAxiom .
+lado:RCA04 amt:antecedent1 lado:hasSameFootring .
+lado:RCA04 amt:antecedent2 lado:hasSameRim .
+lado:RCA04 amt:consequent lado:partiallyNotCoincidentWith .
+lado:RCA04 amt:logic amt:ProductLogic .
+
+# InverseAxiom
+
+lado:IA01 rdf:type amt:InverseAxiom .
+lado:IA01 amt:antecedent lado:partiallyCoincidentWith .
+lado:IA01 amt:inverse lado:partiallyNotCoincidentWith .
