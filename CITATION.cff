@@ -13,10 +13,10 @@ type: dataset
 identifiers:
   - description: This is the collection of archived snapshots of all versions of CeraTyOnt
     type: doi
-    value: "tbd"
+    value: "10.5281/zenodo.7143093"
   - description: This is the archived snapshot of version 0.1
     type: doi
-    value: "tbd"
+    value: "10.5281/zenodo.7143094"
 date-released: 2022-10-04
 license: MIT
 repository-code: "https://github.com/RGZM/amt-ceratyont/"
