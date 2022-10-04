@@ -11,10 +11,10 @@ title: "CeraTyOnt @ AMT"
 version: 0.1
 type: dataset
 identifiers:
-  - description: This is the collection of archived snapshots of all versions of CeraTyOnt
+  - description: This is the collection of archived snapshots of all versions
     type: doi
     value: "10.5281/zenodo.7143093"
-  - description: This is the archived snapshot of version 0.1
+  - description: This is the archived snapshot of version 1.0
     type: doi
     value: "10.5281/zenodo.7143094"
 date-released: 2022-10-04
